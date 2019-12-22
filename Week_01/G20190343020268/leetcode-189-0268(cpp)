@@ -1,0 +1,28 @@
+//leetcode-189-0268
+void rotate(vector<int>& nums, int k)
+{
+    int numsSize = nums.size();
+    if (numsSize == 0)   
+	return;
+    int l, r, temp;
+    if (k > numsSize)   
+	k %= numsSize;
+    for (l = 0, r = numsSize - k - 1; l < r; r--, l++)
+    {
+        temp = nums.at(l);
+        nums.at(l) = nums.at(r);
+        nums.at(r) = temp;
+    }
+    for (l = numsSize - k, r = numsSize - 1; l < r; r--, l++)
+    {
+        temp = nums.at(l);
+        nums.at(l) = nums.at(r);
+        nums.at(r) = temp;
+    }
+    for (l = 0, r = numsSize - 1; l < r; r--, l++)
+    {
+        temp = nums.at(l);
+        nums.at(l) = nums.at(r);
+        nums.at(r) = temp;
+    }
+}

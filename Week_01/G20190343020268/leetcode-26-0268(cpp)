@@ -1,0 +1,17 @@
+//leetcode-26-0268
+class Solution {
+    public :
+	int removeDuplicates(vector<int>& nums) {
+        if (nums.size() == 0) {
+            return 0;
+        }
+        int back = 0;
+        for (int front = 1; front < nums.size(); front++) {
+            if (nums.at(back) != nums.at(front)) {
+                back++;
+                nums.at(back) = nums.at(front);
+            }
+        }
+        return back + 1;
+    }
+};
